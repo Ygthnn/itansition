@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fake User Generator</title>
+</head>
+<body>
+
+<h2>Generate Users</h2>
+
+<form method="POST">
+    Locale:
+    <select name="locale">
+        <option value="en_US">English</option>
+        <option value="de_DE">German</option>
+    </select>
+
+    Seed:
+    <input type="number" name="seed" value="123">
+
+    Batch size:
+    <input type="number" name="batch_size" value="10" min="1" max="1000">
+
+    <button type="submit">Generate</button>
+</form>
+
+<h3>Results:</h3>
+
+<table border="1">
+<tr>
+    <th>Name</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Height</th>
+    <th>Weight</th>
+    <th>Eye Color</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Address</th>
+</tr>
+
+{% for user in users %}
+<tr>
+    <td>{{ user[0] }}</td>
+    <td>{{ user[1] }}</td>
+    <td>{{ user[2] }}</td>
+    <td>{{ user[3] }}</td>
+    <td>{{ user[4] }}</td>
+    <td>{{ user[5] }}</td>
+    <td>{{ user[6] }}</td>
+    <td>{{ user[7] }}</td>
+    <td>{{ user[8] }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>
